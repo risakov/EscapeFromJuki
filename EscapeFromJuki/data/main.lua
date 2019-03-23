@@ -7,3 +7,5 @@ _G.Height = display.pixelHeight
 _G.CenterX = display.contentCenterX
 _G.CenterY = display.contentCenterY
 --hui
+local composer = require("composer")
+composer.gotoScene("Scenes.MainMenu")
