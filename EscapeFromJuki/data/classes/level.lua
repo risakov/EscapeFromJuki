@@ -1,19 +1,17 @@
 local sectLevel = require("classes.sectLevel")
-level = {}
+lvl = {}
 
-function level:new(number)
+function lvl:new(number)
 
     local obj = {}
         obj.number = number
         math.randomseed(os.time() + number)
         obj.countSceneRun = math.random(4 + 2 * number, 10 + 2 * number)
         obj.countSceneBreakBrain = math.random(1 + number, 2 + number)
-
         obj.layers = display.newGroup()
         obj.layers.back = display.newGroup()
         obj.layers.mid = display.newGroup()
         obj.layers.front = display.newGroup()
-
         obj.locations = {}
         for i = 1, obj.countSceneRun do
             obj.locations[i] = sect:new(i-1,obj.layers)
@@ -21,8 +19,10 @@ function level:new(number)
 
 
     function obj:update(event)
-        for i = 1, obj.countSceneRun do
-            obj.locations[i]:update()
+        if (obj.locations[obj.countSceneRun].ground.x >= 0) then
+            for i = 1, obj.countSceneRun do
+                obj.locations[i]:update()
+            end
         end
     end
 
