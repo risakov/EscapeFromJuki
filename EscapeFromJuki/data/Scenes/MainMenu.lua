@@ -18,7 +18,9 @@ end
 
 function scene:create(event)
   local sceneGroup = self.view
-  scene.background = display.newImageRect(sceneGroup,"Sprites/ФОн.png",Height,Width,Height,Width)
+  scene.background = display.newImageRect(sceneGroup,"Sprites/fon.png",Height,Width)
+  scene.background.x = CenterX
+  scene.background.y = CenterY
   scene.buttonPlay = MyButton:new(sceneGroup,CenterX-Width/6,CenterY*1/3+Height/200,Height/20,Height/30,"Игратт",native.systemFontSize,PressToPlay)
   scene.buttonSettings = MyButton:new(sceneGroup,CenterX-Width/6,CenterY,Height/20,Height/30,"Настройки",native.systemFontSize,PressToSettings)
   scene.buttonExit = MyButton:new(sceneGroup,CenterX-Width/6,CenterY*3/2+Height/200,Height/20,Height/30,"Выход",native.systemFontSize,PressToExit)
